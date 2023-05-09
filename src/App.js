@@ -6,6 +6,7 @@ import Slot from './Components/Slot';
 function App() {
   const [showHelp, setShowHelp] = useState(false)
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""])
+  const [playable, setPlayable] = useState(false)
 
   const helpHandler = () => {
     setShowHelp(!showHelp)
