@@ -1,38 +1,148 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, #root {
+  background-color: #444;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.header{
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding-left: 2rem;
+
+}
+.header ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  font-size: 2rem;
+}
+.header ul li{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+}
+.header h1{
+  align-self: center;
+  font-size: 4rem;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  font-size: 4rem;
+  background-color: inherit;
+}
+
+.helpbox{
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  width: 50%; 
+  height: 50%; 
+  transform: translate(-50%, -50%) ;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+
+.helpcont{
+  margin: 10% auto;
+  align-items: center;
+  padding: 10px;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.helpcont ul{
+  font-size: 1.5rem;
+  gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.helpcont li{
+  padding: 2rem;
+}
+
+.helpcont h3{
+  background-color: #444;
+  width: 90%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 20px;
+  padding: 10px 10px;
+  border-radius: 10px;
+
+}
+
+.close {
+  float: right;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.help{
+  background-color:rgb(18, 101, 209) ;
+}
+.help:hover{
+  background-color:rgb(66, 142, 241) ;
+  cursor: pointer;
+}
+
+.start{
+  background-color: rgb(12, 90, 10);
+}
+.start:hover{
+  background-color: rgb(13, 124, 11);
+  cursor: pointer;
+}
+
+.board{
+  width: 1000px;
+  height: 1000px;
+  background-color: #111;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+}
+.board .row{
+  flex: 33%;
+  padding: 0;
+  margin: 0;
+}
+.slot{
+  flex: 33%;
+  padding: 0;
+  border: 1px solid white;
 }
