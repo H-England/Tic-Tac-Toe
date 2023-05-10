@@ -1,9 +1,9 @@
 import React from 'react'
 import "../App.css"
 
-function Slot( {value, chooseSquare} ) {
+function Slot( {value, chooseSlot} ) {
   return (
-    <div className='slot' onClick={chooseSquare}>
+    <div className='slot' onClick={chooseSlot}>
         {value}
     </div>
   )

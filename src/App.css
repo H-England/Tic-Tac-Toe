@@ -145,4 +145,67 @@ body, #root {
   flex: 33%;
   padding: 0;
   border: 1px solid white;
+  height: 100%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.symbolBtnX{
+  padding: 40px 60px;
+  background-color: #ff0000;
+  font-size: 50px;
+  border: #111;
+  border-radius: 10px;
+  color: white;
+}
+
+.symbolBtnO{
+  padding: 40px 60px;
+  background-color: #0051ff;
+  font-size: 50px;
+  border: white;
+  border-radius: 10px;
+  color: white;
+}
+
+.symbolBtnX:hover,
+.symbolBtnX:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #ff3030;
+}
+
+.symbolBtnO:hover,
+.symbolBtnO:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #1962ff;
+}
+
+.gm{
+  padding: 50px 50px;
+  background-color: #005804;
+  font-size: 40px;
+  border: white;
+  border-radius: 10px;
+  color: white;
+}
+.gm:hover,
+.gm:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #009708;
+}
+
+.gamemode{
+  text-align: center;
+  align-content: center;
+  padding: 10px;
 }
