@@ -149,9 +149,15 @@ body, #root {
   cursor: pointer;
   display: grid;
   place-items: center;
-  font-size: 30px;
+  font-size: 80px;
+  font-weight: 700;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.slot:active{
+  background-color: #222;
 }
 
 .symbolBtnX{
