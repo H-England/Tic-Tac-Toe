@@ -83,9 +83,9 @@ function App() {
     if (draw && board.every((value) => value !== "")) {
       setFinish(true);
       setPlayable(false);
-      setIsDraw(true); // Update the isDraw state variable here
+      setIsDraw(true);
     } else {
-      setIsDraw(false); // Update the isDraw state variable here
+      setIsDraw(false);
     }
   };
   
