@@ -103,7 +103,7 @@ function App() {
           <h1>Tic Tac Toe</h1>
           <ul>
             <li className='start' onClick={gameHandler} >Start / Restart</li>
-            <li className='help' onClick={helpHandler}>Help</li>
+            <li className='help' onClick={helpHandler}>How to Play</li>
           </ul>
         </div>
         <div className="App">
