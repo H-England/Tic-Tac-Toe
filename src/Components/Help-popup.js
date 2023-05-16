@@ -8,7 +8,6 @@ function HelpPopUp({onClose}) {
                 <h3>How to Play Tic-Tac-Toe:</h3>
                 <ul>
                     <li>Step 1: Press The Start Button</li>
-                     {/* Make a gamemode first to 3 and singles, as well as Player vs Ai */}
                     <li>Step 2: A Menu will appear, choose the game mode you would like to play.</li> 
                     <li>Step 3: Choose whether you are play with X's or O's, then at the bottom of the screen you either an X or an 0 will light up, indicating who is starting first.</li>
                     <li>Step 4: Now it is time to choose a spot on the 3 by 3 grid to place your symbol. Once you have done that, it is the other person's turn. You can only choose empty spaces.</li>
