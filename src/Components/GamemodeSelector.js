@@ -27,11 +27,11 @@ const GamemodeSelector = ( {onClick, playerSelect, firsttothree} ) => {
                 </div>
                 <div className='gamemode'>
                 <button className='gm' onClick={handleSingleMatch}>Single Match</button>
-                  <p>Player vs. Ai</p>  
+                  <p>Player vs. AI</p>  
                 </div>
                 <div className='gamemode'>
                 <button className='gm' onClick={handleFirstToThree}>First to Three</button>
-                  <p>Player vs. Ai</p>  
+                  <p>Player vs. AI</p>  
                 </div>
             </div> 
       </div>
