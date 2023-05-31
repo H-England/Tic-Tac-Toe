@@ -22,7 +22,7 @@ const GamemodeSelector = ( {onClick, playerSelect, firsttothree} ) => {
                   <p>Player vs. Player</p>  
                 </div>
                 <div className='gamemode'>
-                <button className='gm' onClick={handleFirstToThree}>First to Three</button>
+                <button className='gm' onClick={handleFirstToThree}>Best of Five</button>
                   <p>Player vs. Player</p>  
                 </div>
                 <div className='gamemode'>
@@ -30,7 +30,7 @@ const GamemodeSelector = ( {onClick, playerSelect, firsttothree} ) => {
                   <p>Player vs. AI</p>  
                 </div>
                 <div className='gamemode'>
-                <button className='gm' onClick={handleFirstToThree}>First to Three</button>
+                <button className='gm' onClick={handleFirstToThree}>Best of Five</button>
                   <p>Player vs. AI</p>  
                 </div>
             </div> 
