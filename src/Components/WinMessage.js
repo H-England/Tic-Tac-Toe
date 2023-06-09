@@ -18,7 +18,8 @@ const WinMessage = ({ onClick, winner, draw }) => {
     return (
       <div className="helpbox">
         <div className="helpcont">
-          <h3>Congratulations, {winner}! You have won the game!</h3>
+          <h3>Congratulations, {winner}!
+           You have won the game!</h3>
           <Button variant="danger" onClick={onClick}>
             Close
           </Button>
