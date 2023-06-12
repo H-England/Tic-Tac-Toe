@@ -158,8 +158,8 @@ function App() {
           </ul>
             <div className="game-info">
               <p>Game Mode: {isFirstToThree ? "First to 3 Wins" : "Single Match"}</p>
-              <p>Player 1 Score: {player1Score}</p>
-              <p>Player 2 Score: {player2Score}</p>
+              <p>Player 1's Score: {player1Score}</p>
+              <p>Player 2's Score: {player2Score}</p>
             </div>
         </div>
         <div className="App">
