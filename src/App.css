@@ -1,0 +1,217 @@
+*{
+  box-sizing: border-box;
+}
+
+body, #root {
+  background-color: #444;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.App{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header{
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding-left: 2rem;
+
+}
+.header ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  font-size: 2rem;
+}
+.header ul li{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+}
+.header h1{
+  align-self: center;
+  font-size: 4rem;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  font-size: 4rem;
+  background-color: inherit;
+}
+
+.helpbox{
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  width: 50%; 
+  height: 50%; 
+  transform: translate(-50%, -50%) ;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+
+.helpcont{
+  margin: 10% auto;
+  align-items: center;
+  padding: 10px;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.helpcont ul{
+  font-size: 1.5rem;
+  gap: 1rem;
+}
+
+.helpcont li{
+  padding: 2rem;
+}
+
+.helpcont h3{
+  background-color: #444;
+  width: 90%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 20px;
+  padding: 10px 10px;
+  border-radius: 10px;
+
+}
+
+.close {
+  float: right;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.help{
+  background-color:rgb(18, 101, 209) ;
+}
+.help:hover{
+  background-color:rgb(66, 142, 241) ;
+  cursor: pointer;
+}
+
+.start{
+  background-color: rgb(12, 90, 10);
+}
+.start:hover{
+  background-color: rgb(13, 124, 11);
+  cursor: pointer;
+}
+
+.board{
+  width: 1000px;
+  height: 1000px;
+  background-color: #111;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+}
+.board .row{
+  flex: 33%;
+  padding: 0;
+  margin: 0;
+}
+.slot{
+  flex: 33%;
+  padding: 0;
+  border: 1px solid white;
+  height: 100%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 80px;
+  font-weight: 700;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.slot:active{
+  background-color: #222;
+}
+
+.symbolBtnX{
+  padding: 40px 60px;
+  background-color: #ff0000;
+  font-size: 50px;
+  border: #111;
+  border-radius: 10px;
+  color: white;
+}
+
+.symbolBtnO{
+  padding: 40px 60px;
+  background-color: #0051ff;
+  font-size: 50px;
+  border: white;
+  border-radius: 10px;
+  color: white;
+}
+
+.symbolBtnX:hover,
+.symbolBtnX:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #ff3030;
+}
+
+.symbolBtnO:hover,
+.symbolBtnO:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #1962ff;
+}
+
+.gm{
+  padding: 50px 50px;
+  background-color: #005804;
+  font-size: 40px;
+  border: white;
+  border-radius: 10px;
+  color: white;
+}
+.gm:hover,
+.gm:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #009708;
+}
+
+.gamemode{
+  text-align: center;
+  align-content: center;
+  padding: 10px;
+}
