@@ -101,12 +101,13 @@ function App() {
     if (checkWin(board)) {
       const winner = currentPlayer === player1 ? player2 : player1;
       updateScores(winner);
-    } else if (board.every((value) => value !== "") && !checkWin(board)) {
+    } else if (board.every((value) => value !== "")) {
       setFinish(true);
       setWinner("draw");
       setPlayable(true);
       setBoard(Array(9).fill(""));
       setCurrentPlayer(player1);
+      checkWin(board);
     }
   };
   
@@ -137,14 +138,13 @@ function App() {
       }
     });
   
-    if (isDraw && board.every((value) => value !== "")) {
-      setFinish(true)
-      setWinner("draw")
-      setPlayable(false)
-      setCurrentPlayer(player1)
-      setBoard(["", "", "", "", "", "", "", "", ""])
-    } else {
-      setIsDraw(true)
+    if (!finish && board.every((value) => value !== "")) {
+      setFinish(true);
+      setWinner("draw");
+      setPlayable(true);
+      setBoard(Array(9).fill(""));
+      setCurrentPlayer(player1);
+      setIsDraw(true);
     }
   };
   
