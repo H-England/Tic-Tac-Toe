@@ -30,7 +30,7 @@ function App() {
   const [roundMessage, setRoundMessage] = useState(false);
   const [previousPlayer, setPreviousPlayer] = useState("");
   const [isAITurn, setIsAITurn] = useState(false); 
-
+  const [shouldAIMove, setShouldAIMove] = useState(false)
   const playerSymbol = ["X", "O"];
 
   const setPlayerX = () => {
@@ -47,16 +47,17 @@ function App() {
 
   const gameHandler = (isFirstToThree) => {
     setShowGame(!showGame);
-    setBoard(Array(9).fill(""));
+    setBoard(Array(9).fill(''));
     setPlayable(true);
     setIsFirstToThree(isFirstToThree);
     setPlayer1Score(0);
     setPlayer2Score(0);
     setRoundMessage(false);
-    setFinish(false); 
-    setWinner(""); 
+    setFinish(false);
+    setWinner('');
     setIsDraw(true);
     setCurrentPlayer(player1);
+    setShouldAIMove(true); 
   };
 
   const roundHandler = () => {
@@ -78,7 +79,7 @@ function App() {
   };
 
   const chooseSlot = (slot) => {
-    if (board[slot] === "" && playable && currentPlayer === player1 && !isAITurn) {
+    if (board[slot] === '' && playable && currentPlayer === player1 && !isAITurn) {
       const newBoard = [...board];
       newBoard[slot] = currentPlayer;
       setBoard(newBoard);
@@ -88,31 +89,29 @@ function App() {
     }
   
     if (isAITurn && currentPlayer === player2) {
-      setTimeout(() => {
-        const bestMove = calculateBestMove(board, 0, true);
-        const aiSlot = bestMove.index;
+      const bestMove = calculateBestMove(board, 0, true, currentPlayer, player1, player2);
+      const aiSlot = bestMove.index;
   
-        if (board[aiSlot] === "") {
-          const newBoard = [...board];
-          newBoard[aiSlot] = currentPlayer;
-          setBoard(newBoard);
-          setPreviousPlayer(currentPlayer);
-          setCurrentPlayer(player1);
-          setIsAITurn(false);
-        }
-      }, 100);
+      if (board[aiSlot] === '') {
+        const newBoard = [...board];
+        newBoard[aiSlot] = currentPlayer;
+        setBoard(newBoard);
+        setPreviousPlayer(currentPlayer);
+        setIsAITurn(false);
+        setCurrentPlayer(player1);
+      }
     }
   
-    if (playable) {
+    if (playable && currentPlayer === player1) {
       if (checkWin(board)) {
         const winner = currentPlayer === player1 ? player2 : player1;
         updateScores(winner);
-      } else if (board.every((value) => value !== "")) {
+      } else if (board.every((value) => value !== '')) {
         setFinish(true);
-        setWinner("draw");
+        setWinner('draw');
         setPlayable(true);
-        setBoard(Array(9).fill(""));
-        setCurrentPlayer(player1);
+        setBoard(Array(9).fill(''));
+        setCurrentPlayer(winner === player1 ? player2 : player1);
         checkWin(board);
       }
     }
@@ -162,14 +161,12 @@ function App() {
         setFinish(true);
         setShowGame(false);
         setWinner(player1);
-        setBoard(["", "", "", "", "", "", "", "", ""]);
+        setBoard(Array(9).fill(''));
         setPlayer1Score(0);
         setPlayer2Score(0);
         setPlayable(true);
-        setCurrentPlayer("")
-      } else {
-        setBoard(["", "", "", "", "", "", "", "", ""]);
-        setRoundMessage(true);
+        setCurrentPlayer('');
+        return;
       }
     } else if (winner === player2) {
       setPlayer2Score((prevScore) => prevScore + 1);
@@ -177,30 +174,39 @@ function App() {
         setFinish(true);
         setShowGame(false);
         setWinner(player2);
-        setBoard(["", "", "", "", "", "", "", "", ""]);
+        setBoard(Array(9).fill(''));
         setPlayer1Score(0);
         setPlayer2Score(0);
         setPlayable(true);
-        setCurrentPlayer("")
-      } else {
-        setBoard(["", "", "", "", "", "", "", "", ""]);
-        setRoundMessage(true);
+        setCurrentPlayer('');
+        return;
       }
-    } else if (winner === "draw") {
-      setBoard(["", "", "", "", "", "", "", "", ""]);
-      setRoundMessage(true);
     }
+  
+    setBoard(Array(9).fill(''));
+    setRoundMessage(true);
   };
 
   useEffect(() => {
-    if (isAITurn) {
-      setTimeout(() => {
-        const bestMove = calculateBestMove(board, 0, true)
-        chooseSlot(bestMove.index)
-        setIsAITurn(false)
-      }, 500)
+    if (isAITurn && currentPlayer === player2) {
+      const timer = setTimeout(() => {
+        const bestMove = calculateBestMove(board, 0, true, currentPlayer, player1, player2);
+        const aiSlot = bestMove.index;
+  
+        if (board[aiSlot] === '') {
+          const newBoard = [...board];
+          newBoard[aiSlot] = currentPlayer;
+          setBoard(newBoard);
+          setPreviousPlayer(currentPlayer);
+          setIsAITurn(false);
+          setCurrentPlayer(player1);
+        }
+      }, 300);
+  
+      return () => clearTimeout(timer);
     }
-  }, [isAITurn])
+  }, [isAITurn, currentPlayer, board, player1, player2]);
+  
 
   return (
     <div className='App-body'>

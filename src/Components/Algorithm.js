@@ -1,4 +1,6 @@
-export function calculateBestMove(board, depth, maximizingPlayer, alpha = -Infinity, beta = Infinity) {
+export function calculateBestMove(board, depth, maximizingPlayer, currentSymbol, player1Symbol, player2Symbol, alpha = -Infinity, beta = Infinity) {
+    const opponentSymbol = currentSymbol === player1Symbol ? player2Symbol : player1Symbol;
+  
     if (checkWin(board)) {
       if (maximizingPlayer) {
         return { score: -1 };
@@ -12,16 +14,16 @@ export function calculateBestMove(board, depth, maximizingPlayer, alpha = -Infin
     const moves = [];
   
     for (let i = 0; i < board.length; i++) {
-      if (board[i] === '') {
-        const move = {};
-        move.index = i;
-  
-        board[i] = maximizingPlayer ? 'O' : 'X';
-        const result = calculateBestMove(board, depth + 1, !maximizingPlayer, alpha, beta);
-        move.score = result.score;
-  
-        board[i] = '';
-        moves.push(move);
+        if (board[i] === '') {
+          const move = {};
+          move.index = i;
+    
+          board[i] = currentSymbol;
+          const result = calculateBestMove(board, depth + 1, !maximizingPlayer, opponentSymbol, player1Symbol, player2Symbol, alpha, beta);
+          move.score = result.score;
+    
+          board[i] = '';
+          moves.push(move);
   
         if (maximizingPlayer) {
           alpha = Math.max(alpha, move.score);
@@ -30,7 +32,7 @@ export function calculateBestMove(board, depth, maximizingPlayer, alpha = -Infin
         }
   
         if (beta <= alpha) {
-          break; // Alpha-beta pruning
+          break;
         }
       }
     }
