@@ -47,11 +47,16 @@ function App() {
 
   const gameHandler = (isFirstToThree) => {
     setShowGame(!showGame);
-    setBoard(["", "", "", "", "", "", "", "", ""])
+    setBoard(Array(9).fill(""));
     setPlayable(true);
-    setIsFirstToThree(isFirstToThree)
-    setPlayer1Score(0)
-    setPlayer2Score(0)
+    setIsFirstToThree(isFirstToThree);
+    setPlayer1Score(0);
+    setPlayer2Score(0);
+    setRoundMessage(false);
+    setFinish(false); 
+    setWinner(""); 
+    setIsDraw(true);
+    setCurrentPlayer(player1);
   };
 
   const roundHandler = () => {
@@ -98,16 +103,18 @@ function App() {
       }, 100);
     }
   
-    if (checkWin(board)) {
-      const winner = currentPlayer === player1 ? player2 : player1;
-      updateScores(winner);
-    } else if (board.every((value) => value !== "")) {
-      setFinish(true);
-      setWinner("draw");
-      setPlayable(true);
-      setBoard(Array(9).fill(""));
-      setCurrentPlayer(player1);
-      checkWin(board);
+    if (playable) {
+      if (checkWin(board)) {
+        const winner = currentPlayer === player1 ? player2 : player1;
+        updateScores(winner);
+      } else if (board.every((value) => value !== "")) {
+        setFinish(true);
+        setWinner("draw");
+        setPlayable(true);
+        setBoard(Array(9).fill(""));
+        setCurrentPlayer(player1);
+        checkWin(board);
+      }
     }
   };
   
