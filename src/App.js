@@ -79,27 +79,13 @@ function App() {
   };
 
   const chooseSlot = (slot) => {
-    if (board[slot] === '' && playable && currentPlayer === player1 && !isAITurn) {
+    if (board[slot] === '' && playable && currentPlayer === player1) {
       const newBoard = [...board];
       newBoard[slot] = currentPlayer;
       setBoard(newBoard);
       setPreviousPlayer(currentPlayer);
       setCurrentPlayer(player2);
       setIsAITurn(true);
-    }
-  
-    if (isAITurn && currentPlayer === player2) {
-      const bestMove = calculateBestMove(board, 0, true, currentPlayer, player1, player2);
-      const aiSlot = bestMove.index;
-  
-      if (board[aiSlot] === '') {
-        const newBoard = [...board];
-        newBoard[aiSlot] = currentPlayer;
-        setBoard(newBoard);
-        setPreviousPlayer(currentPlayer);
-        setIsAITurn(false);
-        setCurrentPlayer(player1);
-      }
     }
   
     if (playable && currentPlayer === player1) {
