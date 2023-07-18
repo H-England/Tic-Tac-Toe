@@ -9,7 +9,7 @@ const RoundWinMessage = ({ onClick, currentPlayer, previousPlayer }) => {
         <div className="helpcont">
           <h3>Well done {playerName}, you have won the round!</h3>
           <Button variant="danger" onClick={onClick}>
-            Presss to Close
+             Close 
           </Button>
         </div>
       </div>
