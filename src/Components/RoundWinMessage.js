@@ -7,7 +7,7 @@ const RoundWinMessage = ({ onClick, currentPlayer, previousPlayer }) => {
     return (
       <div className="helpbox">
         <div className="helpcont">
-          <h3>Well done {playerName}, you have won the round!</h3>
+          <h3>Well done {playerName}, you have won the Round!</h3>
           <Button variant="danger" onClick={onClick}>
              Close 
           </Button>
