@@ -16,7 +16,7 @@ const GamemodeSelector = ( {onClick, playerSelect, firsttothree} ) => {
   return (
     <div className= "helpbox">
             <div className='helpcont'>
-                <h3>Please select a Gamemode:</h3>
+                <h3>Select a Gamemode:</h3>
                 <div className='gamemode'>
                   <button className='gm' onClick={handleSingleMatch}>Single Match</button>
                   <p>Player vs. Player</p>  
