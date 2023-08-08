@@ -18,14 +18,6 @@ const GamemodeSelector = ( {onClick, playerSelect, firsttothree} ) => {
             <div className='helpcont'>
                 <h3>Select a Gamemode:</h3>
                 <div className='gamemode'>
-                  <button className='gm' onClick={handleSingleMatch}>Single Match</button>
-                  <p>Player vs. Player</p>  
-                </div>
-                <div className='gamemode'>
-                <button className='gm' onClick={handleFirstToThree}>Best of Five</button>
-                  <p>Player vs. Player</p>  
-                </div>
-                <div className='gamemode'>
                 <button className='gm' onClick={handleSingleMatch}>Single Match</button>
                   <p>Player vs. AI</p>  
                 </div>
